@@ -1,4 +1,3 @@
-from selenium.webdriver.common.by import By
 import Global
 
 def Test(session_driver, wait_driver):

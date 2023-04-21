@@ -2,7 +2,8 @@
 from appium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 import time
-import Airport_Bus_Automation
+import Search_Bus_Automation.Search_Bus_Automation as Search_Bus_Automation
+import Airport_Bus_Automation.Airport_Bus_Automation as Airport_Bus_Automation
 
 # 定義Desired Capabilities需求設定內容desired_caps變數，為key-value的字典資料型態
 desired_caps = dict()
@@ -24,7 +25,8 @@ desired_caps['autoGrantPermissions'] = True
 session_driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
 wait_driver = WebDriverWait(session_driver, 5)
 
-Airport_Bus_Automation.Test(session_driver, wait_driver)
+# Airport_Bus_Automation.Test(session_driver, wait_driver)
+Search_Bus_Automation.Test(session_driver, wait_driver)
 
 time.sleep(5)
 session_driver.quit()
