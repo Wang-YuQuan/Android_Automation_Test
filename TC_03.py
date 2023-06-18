@@ -13,7 +13,7 @@ def Test(session_driver, wait_driver):
 
 def SubTest(session_driver, wait_driver, route, _type):
     search_bus_variable.InputBusRoute(session_driver, wait_driver, route)
-    Global.ClickElementByXpath(session_driver, wait_driver, "//*[@resource-id='nexti.android.bustaichung:id/tv_listitem_route_v2_name']/parent::*", "路線 can't found", "路線 can't found")
+    Global.ClickElementByXpath(session_driver, wait_driver, "//*[@resource-id='nexti.android.bustaichung:id/tv_listitem_route_v2_name']/parent::*", "路線 can't found")
     bus_list = search_bus_variable.ReturnBusStops(route, 0, _type)
     scroll_times = (len(bus_list)//7)+1
     while(scroll_times>0):
