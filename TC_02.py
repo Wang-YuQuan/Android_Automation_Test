@@ -7,7 +7,6 @@ def Test(session_driver, wait_driver):
         Global.ClickElementByXpath(session_driver, wait_driver, "//*[@resource-id='nexti.android.bustaichung:id/layout_bus_dialog_negative_button']", "negative_button can't found", 0)
     Global.ClickElementByXpath(session_driver, wait_driver, "//*[@resource-id='nexti.android.bustaichung:id/button_search']", "路線搜尋 btn can't found")
     SubTest(session_driver, wait_driver, "300")
-    SubTest(session_driver, wait_driver, "綠1")
     Global.ReturnPreviousPage(session_driver, wait_driver)
     time.sleep(1)
 

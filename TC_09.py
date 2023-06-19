@@ -7,6 +7,7 @@ def Test(session_driver, wait_driver):
     Global.ClickElementByXpath(session_driver, wait_driver, "//*[@text='路線規劃']/..", "路線規劃 btn can't found")
     SubTest(session_driver, wait_driver, "弘光科技大學(專用道)", "市政府(專用道)", 1)
     SubTest(session_driver, wait_driver, "弘光科技大學(專用道)", "臺中高工(高工路)", 2)
+    SubTest(session_driver, wait_driver, "弘光科技大學(專用道)", "台灣高鐵(雲林站)", 3)
     Global.ReturnPreviousPage(session_driver, wait_driver)
 
 def SubTest(session_driver, wait_driver, res, dst, turns):

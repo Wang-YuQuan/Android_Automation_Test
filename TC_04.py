@@ -36,3 +36,4 @@ def SubTest(session_driver, wait_driver, route, _type):
     assert result==expect, "bus not in trace list"
     Global.ClickElementByXpath(session_driver, wait_driver, "//*[@resource-id='nexti.android.bustaichung:id/text_busid']/parent::*", "btn can't found")
     Global.ClickElementByXpath(session_driver, wait_driver, "//*[@text='刪除追蹤公車']/parent::*", "btn can't found")
+    Global.ReturnPreviousPage(session_driver, wait_driver)

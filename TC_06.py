@@ -5,14 +5,29 @@ def Test(session_driver, wait_driver):
     if(len(Global.FindElementsByXpath(session_driver, wait_driver, "//*[@resource-id='nexti.android.bustaichung:id/layout_bus_dialog_negative_button']", "negative_button can't found", 0))>0):
         Global.ClickElementByXpath(session_driver, wait_driver, "//*[@resource-id='nexti.android.bustaichung:id/layout_bus_dialog_negative_button']", "negative_button can't found", 0)
     Global.ClickElementByXpath(session_driver, wait_driver, "//*[@text='公車追蹤']/parent::*", "公車追蹤 btn can't found")
-    SubTest(session_driver, wait_driver, "56", "342-FZ", '公車離線')
+    bus_number = '761-U8'
+    SubTest(session_driver, wait_driver, "", "", '公車離線')
+    SubTest(session_driver, wait_driver, "", bus_number, '公車離線')
+    SubTest(session_driver, wait_driver, "", "88888", '公車離線')
+    SubTest(session_driver, wait_driver, "1", "", '公車離線')
+    SubTest(session_driver, wait_driver, "1", bus_number, '行駛中')
+    SubTest(session_driver, wait_driver, "1", "88888", '公車離線')
+    SubTest(session_driver, wait_driver, "56", "", '公車離線')
+    SubTest(session_driver, wait_driver, "56", bus_number, '行駛中')
+    SubTest(session_driver, wait_driver, "56", "88888", '公車離線')
+    SubTest(session_driver, wait_driver, "1"*35, "", '公車離線')
+    SubTest(session_driver, wait_driver, "1"*35, bus_number, '行駛中')
+    SubTest(session_driver, wait_driver, "1"*35, "88888", '公車離線')
+    SubTest(session_driver, wait_driver, "1"*36, "", '公車離線')
+    SubTest(session_driver, wait_driver, "1"*36, bus_number, '公車離線')
+    SubTest(session_driver, wait_driver, "1"*36, "88888", '公車離線')
     Global.ReturnPreviousPage(session_driver, wait_driver)
 
 def SubTest(session_driver, wait_driver, stop_number, car_number, compare=""):
     Global.ClickElementByXpath(session_driver, wait_driver, "//*[@resource-id='nexti.android.bustaichung:id/menu_tracker_add']", "add btn can't found")
     Global.FindElementByXpath(session_driver, wait_driver, "//*[@text='名稱']", "text can't found").send_keys(stop_number)
     Global.FindElementByXpath(session_driver, wait_driver, "//*[@text='車牌號碼']", "text can't found").send_keys(car_number)
-    if(stop_number=="" or car_number==""):
+    if(stop_number=="" or car_number=="" or len(stop_number)>35):
         status = Global.FindElementByXpath(session_driver, wait_driver, "//*[@text='儲存']", "save btn can't found").get_attribute('enabled')
         assert status=="false", "status suhold be disabled."
         Global.ClickElementByXpath(session_driver, wait_driver, "//*[@text='取消']", "caancel btn can't found")
